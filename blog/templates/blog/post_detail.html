@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/common.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/post_detail.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <footer class="section">
+        <div class="topbar">
+            <img class="topbar_item" src="{% static "blog/Logo_Kodland.svg" %}">
+            <div class="sub_topbar">
+                <h4 id="blog" class="topbar_item" >Блог</h4>
+                <input class="topbar_item small_btn" type="button" value="+ Добавить статью">
+            </div>
+        </div>
+    </footer>
+    <div class="container">
+        <div class="post_detail" >
+            <h1 class="post_item">{{ object.title }}</h1>
+            <img class="post_item" src="{{ object.img.url }}">
+            <p class="post_item" >{{ object.text }}</p>
+        </div>
+    </div>
+</body>
+</html>

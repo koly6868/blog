@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/common.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <footer class="section">
+        <div class="topbar">
+            <img class="topbar_item" src="{% static "blog/Logo_Kodland.svg" %}">
+            <div class="sub_topbar">
+                <h4 id="blog" class="topbar_item" >Блог</h4>
+                <input class="topbar_item small_btn" type="button" value="+ Добавить статью">
+            </div>
+        </div>
+    </footer>
+
+    <div class="section">
+        <div class="headline">
+            <div class="left_headline">
+                <p class="new_item headline_item">NEW</p>
+                <h1 class=" headline_item" >{{ posts.0.title }}</h1>
+                <p class="headline_item" >{{ posts.0.text}}</p>
+                <a href="{% url 'post_detail' posts.0.id %}">
+                    <input class="big_btn headline_item" type="button" value="Читать">
+                </a>
+            </div>
+            <div class="fill">
+                <img src="{{ posts.0.img.url }}" >
+            </div>
+        </div>
+    </div>
+
+    <div class="main_section">
+        <h2 id="other_posts">Другие статьи</h2>
+        <div class="card_table">
+            {% for post in posts %}
+              {% if forloop.counter0 != 0 %}
+                <a href="{% url 'post_detail' post.id %}">
+                    <div class="card">
+                        <p class="card_date" >{{ post.pub_date }}</p>
+                            <div class="container">
+                                <img src="{{ post.img.url }}">  
+                                <h4><b>{{ post.title }}</b></h4>
+                            </div>
+                        </div>
+                </a>
+              {% endif %}
+            {% endfor %}
+        </div>
+
+    </div>
+
+</body>
+</html>

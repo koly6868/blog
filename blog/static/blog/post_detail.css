@@ -1,0 +1,28 @@
+.post_detail {
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+    max-width: 60%;
+}
+
+.post_item {
+    margin: 20px;
+    
+}
+
+img {
+    object-fit: contain;
+}
+
+html, body {
+    height: 100%;
+}
+
+.container {
+    background-color: #E5E5E5;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+
